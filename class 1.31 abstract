@@ -8,6 +8,7 @@
     <body>
         <svg> 
         <rect width="100px" height="100px" />
+        <rect x="125px" width="100px" height="100px" />
         </svg>
     </body>
 </html>

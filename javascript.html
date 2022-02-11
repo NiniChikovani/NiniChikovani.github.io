@@ -6,11 +6,55 @@
   </head>
 
   <body>
+    <h1 id="Welcome"></h1>
+
     <script>
 
-    var myNumber = 42;
+// Numbers
+var myNumber = 42;
+myNumber = myNumber + 10;
+console.log(myNumber, myNumber / 2);
 
-  console.log(myNumber);
+// strings 
+var myString = "JavaScript is Cool!";
+console.log("D3 and " + myString);
+
+// Booleans
+var myNumber = 100;
+  var bigNumber = myNumber > 50;
+  console.log(bigNumber);
+
+  // Arrays
+var myArray = ["Nini", myNumber, bigNumber, true, 100];
+console.log(myArray[0]); 
+
+// Objects
+var myObject = {
+    name: "Nini",
+    color: "red",
+    height: 70,
+    dog: "dolly",
+    favoriteNumber: "myNumber"
+  };
+
+  console.log(myObject.name);
+
+
+// Functions
+var sayHello = function(name) {
+
+    var helloString = "Hello " + name + "!";
+    console.log(helloString, myNumber);
+    return helloString;
+  }
+
+  sayHello("Nini");
+
+// Interacting with DOM
+var title = document.getElementById("welcome");
+console.log(title);
+title.innerHTML = "Welcome " + myObject.name + "!";
+
 
     </script>
   </body>

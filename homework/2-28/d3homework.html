@@ -10,16 +10,83 @@
 <body>
     <h1 id="title">Homework for February 28th</h1>
 
-    <svg id="squares">
+    <svg id="circleCanvas">
     </svg>
 
     <script>
         var title = d3.select("title");
 
+        // data 
+        var data2000 = [
+            {
+                country: "Georgia",
+                value: 750,
+            },
+
+            {
+                country: "Ukraine",
+                value: 635,
+            },
+
+            {
+                country: "Moldova",
+                value: 440,
+            },
+        ];
+
+        var data2020 = [
+            {
+                country: "Georgia",
+                value: 4230,
+            },
+
+            {
+                country: "Ukraine",
+                value: 3730,
+            },
+
+            {
+                country: "Moldova",
+                value: 4550,
+            },
+
+        ];
+
+        var svgContainer = d3.select("body").append("svg")
+            .attr("width", 900)
+            .attr("height", 900);
+
+        //rectangle Georgia
+        var rectangle = svgContainer.append("rect")
+            .attr("x", 150)
+            .attr("y", 70)
+            .attr("fill", "#2A1724")
+            .attr("width", 50)
+            .attr("height", 140);
+
+
+        //rectangle Ukraine
+        var rectangle = svgContainer.append("rect")
+            .attr("x", 250)
+            .attr("y", 70)
+            .attr("fill", "#513349")
+            .attr("width", 50)
+            .attr("height", 140);
+
+        //rectangle Moldova
+        var rectangle = svgContainer.append("rect")
+            .attr("x", 350)
+            .attr("y", 70)
+            .attr("fill", "#9D6F89")
+            .attr("width", 50)
+            .attr("height", 140);
+
+            //data binding
 
 
 
     </script>
+
 
 </body>
 

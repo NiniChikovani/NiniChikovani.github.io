@@ -10,7 +10,7 @@
 <body>
     <h1 id="title">Homework for February 28th</h1>
 
-    <svg id="circleCanvas">
+    <svg id="rectangleCanvas">
     </svg>
 
     <script>
@@ -56,32 +56,18 @@
             .attr("width", 900)
             .attr("height", 900);
 
-        //rectangle Georgia
-        var rectangle = svgContainer.append("rect")
-            .attr("x", 150)
-            .attr("y", 70)
-            .attr("fill", "#2A1724")
-            .attr("width", 50)
-            .attr("height", 140);
 
+        function createrect(height, x1) {
+            svgContainer.append("rect")
+                .attr("x", x1)
+                .attr("y", 70)
+                .attr("fill", "#513349")
+                .attr("width", 50)
+                .attr("height", height);
+        }
 
-        //rectangle Ukraine
-        var rectangle = svgContainer.append("rect")
-            .attr("x", 250)
-            .attr("y", 70)
-            .attr("fill", "#513349")
-            .attr("width", 50)
-            .attr("height", 140);
-
-        //rectangle Moldova
-        var rectangle = svgContainer.append("rect")
-            .attr("x", 350)
-            .attr("y", 70)
-            .attr("fill", "#9D6F89")
-            .attr("width", 50)
-            .attr("height", 140);
-
-            //data binding
+        createrect(100, 150);
+        createrect(100, 250);
 
 
 

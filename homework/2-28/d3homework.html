@@ -57,17 +57,48 @@
             .attr("height", 900);
 
 
-        function createrect(height, x1) {
+        // function createrect(height, x1) {
+        //     svgContainer.append("rect")
+        //         .attr("x", x1)
+        //         .attr("y", 70)
+        //         .attr("fill", "#513349")
+        //         .attr("width", 50)
+        //         .attr("height", height);
+        // }
+
+        // createrect(100, 150);
+        // createrect(100, 250);
+
+
+
+        function createrect(height, x1, color, data) {
+            // geometry 
             svgContainer.append("rect")
+                .attr("class", 'myRect')
                 .attr("x", x1)
                 .attr("y", 70)
-                .attr("fill", "#513349")
+                .attr("fill", color)
                 .attr("width", 50)
                 .attr("height", height);
+            // text
+            svgContainer.append("text")
+                .attr("x", x1)
+                .attr("y", 200)
+                .attr("stroke", color)
+                .text(data);
         }
+        let colors = ["#513349", "#9D6F89", "#2A1724"]
 
-        createrect(100, 150);
-        createrect(100, 250);
+        // createrect(100, 150, colors[1]);
+        for (let i = 0; i < colors.length; i++) {
+            const color = colors[i];
+            const data = data2000[i].country;
+
+            let rect = createrect(0, 150 + (i * 200), color, data)
+            // d3.select(rect).transition()
+            //     .duration(2000)
+            //     .attr("height", "100")
+        }
 
 
 

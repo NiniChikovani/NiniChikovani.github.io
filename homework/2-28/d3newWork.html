@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>D3 homework</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body>
+    <style>
+        /* .bar {
+            width: 25px;
+            height: 100%;
+            background-color: blue;
+            margin: 5px;
+            display: inline-block;
+        } */
+
+        .info {
+            text-align: center;
+        }
+    </style>
+    <h1 id="title">Homework for February 28th</h1>
+
+    <!-- <svg id="rectangleCanvas">
+    </svg> -->
+
+    <div class="data-container"></div>
+
+    <p class="info">The graphs illustrate GDP per capita of Georgia, Ukraine and Moldova <br></p>
+
+    <script>
+        var data2000 = [
+            {
+                country: "Georgia",
+                value: 750,
+                color: "#513349",
+                coordinate: 0
+            },
+
+            {
+                country: "Ukraine",
+                value: 635,
+                color: "#9D6F89",
+                coordinate: 150
+            },
+
+            {
+                country: "Moldova",
+                value: 440,
+                color: "#2A1724",
+                coordinate: 300
+            },
+        ];
+
+        var data2020 = [
+            {
+                country: "Georgia",
+                value: 4230,
+                color: "#513349",
+                coordinate: 0
+            },
+
+            {
+                country: "Ukraine",
+                value: 3730,
+                color: "#9D6F89",
+                coordinate: 150
+            },
+
+            {
+                country: "Moldova",
+                value: 4550,
+                color: "#2A1724",
+                coordinate: 300
+            },
+
+        ];
+
+
+        function drawRects(dataArray, scale) {
+            // defining general sizes
+            const h = 300;
+            const w = 500;
+
+            // appending svg s into data container DIV
+            let svg = d3.select('.data-container')
+                .append('svg')
+                .attr('height', h)
+                .attr('width', w);
+
+            // selecting all rects and binding data to them, as well as some attributes
+            svg.selectAll('rect')
+                .data(dataArray)
+                .enter()
+                .append('rect')
+                .attr('width', 100)
+                .attr('x', (d, i) => d.coordinate)
+                .attr('y', (d, i) => 0)
+                .attr('fill', (d) => d.color)
+                .transition()
+                .duration(2000)
+                .attr("height", (d) => d.value / scale)
+
+            // appending texts under the charts and attributes
+            svg.selectAll('text')
+                .data(dataArray)
+                .enter()
+                .append('text')
+                .text((d) => d.country)
+                .attr('x', (d) => d.coordinate + 20)
+                .attr('y', (d) => (d.value / scale) + 20)
+                .attr('stroke', d => d.color)
+
+            // just exit, please explain me more exit feature and use cases of it.
+            svg.exit()
+                .transition().duration(1000)
+                .attr("height", 0)
+                .remove();
+        }
+
+        // executing draw function to draw 
+        drawRects(data2000, 5)
+        drawRects(data2020, 25)
+
+    </script>
+
+
+</body>
+
+</html>

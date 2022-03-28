@@ -41,11 +41,15 @@
             .attr("width", width)
             .attr("height", height);
 
+        var domainValues = d3.range(1, dataMax + 1);
 
-        var x = d3.scaleLinear()
-            .domain([dataMax, 1])
-            .range([margin.left, margin.left + chartWidth - barWidth]);
+        var x = d3.scaleBand()
+            .domain(domainValues.reverse())
+            .range([margin.left, margin.left + chartWidth])
+            .paddingInner(0.1)
+            .paddingOuter(0.2);
 
+        var barWidth = x.bandwidth();
 
         function fetchData() {
 
@@ -70,11 +74,39 @@
 
                     var y = d3.scaleLinear()
                         .domain([0, maxUsers])
+                        .range([margin.top + chartHeight, margin.top]);
 
+                    var yAxis = d3.axisLeft(y);
+                    svg.select("#y")
+                        .attr("transform", "translate(" + margin.left + ",0)")
+                        .transition().duration(frequency / 2)
+                        .call(yAxis);
+
+                    var xAxis = d3.axisBottom(x);
+                    svg.select("#x")
+                        .attr("transform", "translate(0," + (chartHeight + margin.top) + ")")
+                        .transition().duration(frequency / 2)
+                        .call(xAxis);
+
+                    function zeroState(selection) {
+                        selection
+                            .attr("height", 0)
+                            .attr("y", y(0));
+                    }
+
+                    function barPosition(selection) {
+                        selection
+                            .attr("height", function (d) {
+                                return barHeight(d.users);
+                            })
+                            .attr("y", function (d) {
+                                return y(d.users);
+                            });
+                    }
 
 
                     //data binding
-                    var bars = svg.selectAll(".bar")
+                    var bars = svg.select("#shapes").selectAll(".bar")
                         .data(data, function (d) {
                             return d.timestamp;
                         });
@@ -83,33 +115,28 @@
                     bars.enter().append("rect")
                         .attr("class", "bar")
                         .attr("width", barWidth)
-                        .attr("height", function (d) {
-                            return barHeight(d.users);
-                        })
                         .attr("x", function (d, i) {
                             return x(i + 1);
                         })
-                        .attr("y", function (d) {
-                            var h = barHeight(d.users);
-                            return height - h;
-                        });
+                        .call(zeroState)
+                        .transition().duration(frequency / 2)
+                        .call(barPosition);
 
 
                     //updating bars 
-                    bars.transition().duration(frequency / 2)
-                        .attr("height", function (d) {
-                            return barHeight(d.users);
-                        })
+                    bars
+                        .transition().duration(frequency / 2)
                         .attr("x", function (d, i) {
                             return x(i + 1);
                         })
-                        .attr("y", function (d) {
-                            var h = barHeight(d.users);
-                            return height - h;
-                        });
+                        .call(barPosition);
+
 
                     //exiting bars
-                    bars.exit().remove();
+                    bars.exit()
+                        .transition().duration(frequency / 2)
+                        .call(zeroState)
+                        .remove();
 
                 });
 

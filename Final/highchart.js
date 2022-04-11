@@ -1,4 +1,4 @@
-//container is the name of your div defined in the html file
+//container is the name of my div defined in the html file
 let myChart = Highcharts.chart('nini', {
 
     chart: {
@@ -34,7 +34,7 @@ let myChart = Highcharts.chart('nini', {
         startOnTick: false,
         endOnTick: false,
         title: {
-            text: 'Annual CO2'
+            text: 'Annual CO2 Emissions (per capita)'
         },
         labels: {
             format: '{value}'
@@ -47,7 +47,7 @@ let myChart = Highcharts.chart('nini', {
         headerFormat: '<table>',
         pointFormat: '<tr><th colspan="2"><h3>{point.country}</h3></th></tr>' +
             '<tr><th>Population:</th><td>{point.x}</td></tr>' +
-            '<tr><th>Annual CO2:</th><td>{point.y}</td></tr>' +
+            '<tr><th>Annual CO2 Emissions:</th><td>{point.y}</td></tr>' +
             '<tr><th>GDP:</th><td>{point.z} USD</td></tr>',
         footerFormat: '</table>',
         followPointer: true
@@ -64,24 +64,19 @@ let myChart = Highcharts.chart('nini', {
 
     series: [{
         data: [
-            { x: 25.687, y: 15.3684, z: 1327836.17, name: 'Australia', country: 'Australia' },
-            { x: 86.5, y: 102.9, z: 14.7, name: 'DE', country: 'Germany' },
-            { x: 80.8, y: 91.5, z: 15.8, name: 'FI', country: 'Finland' },
-            { x: 80.4, y: 102.5, z: 12, name: 'NL', country: 'Netherlands' },
-            { x: 80.3, y: 86.1, z: 11.8, name: 'SE', country: 'Sweden' },
-            { x: 78.4, y: 70.1, z: 16.6, name: 'ES', country: 'Spain' },
-            { x: 74.2, y: 68.5, z: 14.5, name: 'FR', country: 'France' },
-            { x: 73.5, y: 83.1, z: 10, name: 'NO', country: 'Norway' },
-            { x: 71, y: 93.2, z: 24.7, name: 'UK', country: 'United Kingdom' },
-            { x: 69.2, y: 57.6, z: 10.4, name: 'IT', country: 'Italy' },
-            { x: 68.6, y: 20, z: 16, name: 'RU', country: 'Russia' },
-            { x: 65.5, y: 126.4, z: 35.3, name: 'US', country: 'United States' },
-            { x: 65.4, y: 50.8, z: 28.5, name: 'HU', country: 'Hungary' },
-            { x: 63.4, y: 51.8, z: 15.4, name: 'PT', country: 'Portugal' },
-            { x: 64, y: 82.9, z: 31.3, name: 'NZ', country: 'New Zealand' }
+            { x: 25.69, y: 153684, z: 132783617, name: 'Australia', country: 'Australia' },
+            { x: 38, y: 141969, z: 164542341, name: 'CA', country: 'Canada' },
+            { x: 83.9, y: 88702, z: 2034713, name: 'IR', country: 'Iran' },
+            { x: 18.7, y: 155158, z: 17108238, name: 'KZ', country: 'Kazakhstan' },
+            { x: 144.1, y: 108072, z: 148349778, name: 'RUS', country: 'Russia' },
+            { x: 34.8, y: 179672, z: 70011787, name: 'SAU', country: 'Saudi Arabia' },
+            { x: 51.7, y: 116562, z: 16378958, name: 'KOR', country: 'South Korea' },
+            { x: 6.03, y: 124914, z: 4523143, name: 'TKM', country: 'Turkmenistan' },
+            { x: 9.9, y: 151933, z: 35886877, name: 'ARE', country: 'United Arab Emirates' },
+            { x: 329.5, y: 142379, z: 20953030, name: 'USA', country: 'United States' },
 
-            //             , 2020, , ""
-            // Canada, 2020, 14.1969, "38,005.24"
+
+            // Canada, 2020, 14.1969, 
             // Iran, 2020, 8.8702, "83,992.95"
             // Kazakhstan, 2020, 15.5158, "18,754.44"
             // Russia, 2020, 10.8072, "144,104.08"

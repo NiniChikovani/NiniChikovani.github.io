@@ -1,21 +1,15 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
+<html>
 
-<script src="https://d3js.org/d3.v4.js"></script>
-
-<div id="chart"></div>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
 
 
 <body>
-
-
+    <div id="chart"></div>
     <script>
-
-        d3.csv("ARTG5330 data - Sheet2.csv")
-            .then(function (data) {
-                console.log(data);
-            });
-
 
         //dimensions and margins of the graph
         var margin = { top: 10, right: 30, bottom: 30, left: 200 },
@@ -49,22 +43,13 @@
             svg.append("g")
                 .call(d3.axisLeft(y));
 
-            // dots
-            svg.append('g')
-                .selectAll("dot")
-                .data(data)
-                .enter()
-                .append("circle")
-                .attr("cx", function (d) { return x(d.GrLivArea); })
-                .attr("cy", function (d) { return y(d.SalePrice); })
-                .attr("r", 1.5)
-                .style("fill", "#69b3a2")
-
         })
+
 
     </script>
 
     <script src="./testchartfinal.html"></script>
+
 </body>
 
 </html>

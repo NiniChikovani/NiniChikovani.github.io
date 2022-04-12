@@ -47,7 +47,6 @@ d3.csv("./finalData.csv")
             .call(d3.axisLeft(y));
 
 
-
         var frequency = 3 * 1000; // 3 seconds
 
         //bubbles

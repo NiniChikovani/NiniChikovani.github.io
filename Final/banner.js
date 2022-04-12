@@ -10,4 +10,5 @@ d3.select(window)
         d3.select("#banner")
             .style("background-position", "50% " + y + "%");
 
+
     });

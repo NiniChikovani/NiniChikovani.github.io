@@ -2,7 +2,7 @@
 
 //dimensions and margins of the graph
 var margin = { top: 10, right: 30, bottom: 30, left: 200 },
-    width = 850 - margin.left - margin.right,
+    width = 1000 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 
 
@@ -32,8 +32,8 @@ d3.csv("./finalData.csv")
         console.log(maxPopulation, maxCO2)
 
         // X axis
-        var x = d3.scaleLinear()
-            .domain([0, maxPopulation])
+        var x = d3.scaleLog()
+            .domain([4000000, maxPopulation])
             .range([0, width]);
         svg.append("g")
             .attr("transform", "translate(0," + height + ")")
@@ -41,9 +41,30 @@ d3.csv("./finalData.csv")
 
         // Y axis
         var y = d3.scaleLinear()
-            .domain([0, maxCO2])
+            .domain([7, maxCO2 + 2])
             .range([height, 0]);
         svg.append("g")
             .call(d3.axisLeft(y));
+
+
+
+        var frequency = 3 * 1000; // 3 seconds
+
+        //bubbles
+
+        svg.append('g')
+            .selectAll("bubbles")
+            .data(finalData)
+            .enter()
+            .append("circle")
+            .attr("cx", function (d) { return x(+d.Population * 1000); })
+            .attr("cy", function (d) { return y(+d.CO2); })
+            .attr("r", 0)
+            .style("fill", "#53265e")
+            .style("opacity", "0.7")
+            .attr("stroke", "black")
+            .transition().duration(frequency / 2)
+            .attr("r", 20)
+
 
     });

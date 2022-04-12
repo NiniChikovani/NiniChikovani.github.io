@@ -4,11 +4,11 @@ body {
 }
 
 #banner {
-    background-color: #9cc3d3;
+    background-color: #bad3dd;
   background-position: 50% 100%;
   background-size: cover;
-    padding: 25px 25px;
-    text-align: center;
+    padding: 20px 20px;
+    text-align: left;
   }
 
 
@@ -23,17 +23,17 @@ body {
 
 
   .section svg {
-    border: 3px solid rgb(221, 188, 228);
-    flex: 3;
-    height: 300px;
-    margin: 20px;
+    border: 0px;
+    flex: 1;
+    height: 900px;
+    margin: 1px;
   }
 
   .section svg {
-    border: 3px solid rgb(221, 188, 228);
-    flex: 3;
-    height: 300px;
-    margin: 20px;
+    border: 0px;
+    flex: 1;
+    height: 900px;
+    margin: 10px;
   }
 
   #tooltip {

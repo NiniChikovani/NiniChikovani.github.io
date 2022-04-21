@@ -39,6 +39,7 @@ d3.csv("./finalData.csv")
             .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x));
 
+
         // Y axis
         var y = d3.scaleLinear()
             .domain([7, maxCO2 + 2])

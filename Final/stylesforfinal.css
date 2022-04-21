@@ -1,43 +1,43 @@
 body {
-    font-family: "Georgia, 'Times New Roman', Times, serif";
-    margin: 0;
+  font-family: "Georgia, 'Times New Roman', Times, serif";
+  margin: 0;
 }
 
 #banner {
-    background-color: #bad3dd;
+  background-color: #bad3dd;
   background-position: 50% 100%;
   background-size: cover;
-    padding: 20px 20px;
-    text-align: left;
-  }
+  padding: 20px 20px;
+  text-align: left;
+}
 
 
-  .section {
-    display: flex;
-    padding: 50px;
-  }
-  
-  .section p {
-    flex: 1;
-  }
+.section {
+  display: flex;
+  padding: 50px;
+}
+
+.section p {
+  flex: 1;
+}
 
 
-  .section svg {
-    border: 0px;
-    flex: 1;
-    height: 900px;
-    margin: 1px;
-  }
+.section svg {
+  border: 0px;
+  flex: 1;
+  height: 500px;
+  margin: 1px;
+}
 
-  .section svg {
-    border: 0px;
-    flex: 1;
-    height: 900px;
-    margin: 10px;
-  }
+.section svg {
+  border: 0px;
+  flex: 1;
+  height: 500px;
+  margin: 10px;
+}
 
-  #tooltip {
-    background-color: rgb(235, 220, 241);
+#tooltip {
+  background-color: rgb(235, 220, 241);
   display: none;
   position: absolute;
 }

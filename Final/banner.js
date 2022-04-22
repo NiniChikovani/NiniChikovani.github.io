@@ -1,3 +1,5 @@
+
+
 var bannerPosition = d3.scaleLinear()
     .domain([0, window.innerHeight])
     .range([100, 0]);

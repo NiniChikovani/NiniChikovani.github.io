@@ -1,9 +1,10 @@
 body {
-  font-family: "Georgia, 'Times New Roman', Times, serif";
+  font-family: 'Oxygen', sans-serif;
   margin: 0;
 }
 
 #banner {
+  background-image: url(http://127.0.0.1:8080/final/CO2.jpg);
   background-color: #bad3dd;
   background-position: 50% 100%;
   background-size: cover;

@@ -1,0 +1,47 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #f3f3f3;
+}
+
+.main-banner {
+    margin: 0 auto;
+    width: 1200px;
+    height: 400px;
+    background-color: #bad3dd;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-banner .imgban {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    transition: all ease-in-out 500ms;
+    -webkit-transition: all ease-in-out 500ms;
+}
+
+.main-banner #imgban3 {
+    background-image: url(Desctop/NiniChikovani.github.oi/Final/CO1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-banner #imgban2 {
+    background-image: url(Desctop/NiniChikovani.github.oi/Final/CO3.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.main-banner #imgban1 {
+    background-image: url(NiniChikovani.github.io/Final/CO2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}

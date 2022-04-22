@@ -26,21 +26,21 @@ body {
 }
 
 .main-banner #imgban3 {
-    background-image: url(NiniChikovani.github.oi/Banner/CO1.jpg);
+    background-image: url(https://github.com/NiniChikovani/NiniChikovani.github.io/blob/main/Banner/CO2.jpg?raw=true);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .main-banner #imgban2 {
-    background-image: url(NiniChikovani.github.oi/Banner/CO3.jpg);
+    background-image: url(https://github.com/NiniChikovani/NiniChikovani.github.io/blob/main/Banner/CO3.jpg?raw=true);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .main-banner #imgban1 {
-    background-image: url(NiniChikovani.github.io/Banner/CO2.jpg);
+    background-image: url(https://github.com/NiniChikovani/NiniChikovani.github.io/blob/main/Banner/CO1.jpg?raw=true);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

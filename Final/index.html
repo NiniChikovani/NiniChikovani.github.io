@@ -21,6 +21,86 @@
 
 
 <body>
+
+    <div class="main-banner" id="main-banner">
+        <div class="imgban" id="imgban3">
+        </div>
+        <div class="imgban" id="imgban2">
+        </div>
+        <div class="imgban" id="imgban1">
+        </div>
+
+    </div>
+
+    <script>
+        var bannerStatus = 1;
+        var bannerTimer = 8000;
+
+        window.onload = function () {
+            bannerLoop();
+        }
+
+        var startBannerLoop = setInterval(function () {
+            bannerLoop();
+        }, bannerTimer);
+
+
+        function bannerLoop() {
+            if (bannerStatus === 1) {
+                document.getElementById("imgban2").style.opacity = "0";
+                setTimeout(function () {
+                    document.getElementById("imgban1").style.right = "0px";
+                    document.getElementById("imgban1").style.zIndex = "1000";
+                    document.getElementById("imgban2").style.right = "-1200px";
+                    document.getElementById("imgban2").style.zIndex = "1500";
+                    document.getElementById("imgban3").style.right = "1200px";
+                    document.getElementById("imgban3").style.zIndex = "500";
+                }, 500);
+                setTimeout(function () {
+                    document.getElementById("imgban2").style.opacity = "1";
+                }, 1000);
+                bannerStatus = 2;
+            }
+
+            else if (bannerStatus === 2) {
+                document.getElementById("imgban3").style.opacity = "0";
+                setTimeout(function () {
+                    document.getElementById("imgban2").style.right = "0px";
+                    document.getElementById("imgban2").style.zIndex = "1000";
+                    document.getElementById("imgban3").style.right = "-1200px";
+                    document.getElementById("imgban3").style.zIndex = "1500";
+                    document.getElementById("imgban1").style.right = "1200px";
+                    document.getElementById("imgban1").style.zIndex = "500";
+                }, 500);
+                setTimeout(function () {
+                    document.getElementById("imgban3").style.opacity = "1";
+                }, 1000);
+                bannerStatus = 3;
+            }
+
+
+            else if (bannerStatus === 3) {
+                document.getElementById("imgban1").style.opacity = "0";
+                setTimeout(function () {
+                    document.getElementById("imgban3").style.right = "0px";
+                    document.getElementById("imgban3").style.zIndex = "1000";
+                    document.getElementById("imgban1").style.right = "-1200px";
+                    document.getElementById("imgban1").style.zIndex = "1500";
+                    document.getElementById("imgban2").style.right = "1200px";
+                    document.getElementById("imgban2").style.zIndex = "500";
+                }, 500);
+                setTimeout(function () {
+                    document.getElementById("imgban1").style.opacity = "1";
+                }, 1000);
+                bannerStatus = 1;
+            }
+
+        }
+    </script>
+
+
+
+
     <div id="banner">
         <h3>CO2 Emissions Data Visualization</h3>
         <h4>Final Project for ARTG 5300</h4>
@@ -56,10 +136,8 @@
     </div>
 
     <div class="section">
-        <p>In the legend box I will show a close up pictures of a single small multiple from the chart and define what
-            design elements mean in the chart and what the symbols stand for. This paragraph will provide more
-            information about the relationship between datasets. It will explain the connection between population, GDP,
-            and the CO2 emissions.
+        <p>The circles size of each circle depends on each country's GDP per capita value. Another important
+            layer of information is the number of total annual CO2 emissions of each country.
         </p>
         <svg id="charts"></svg>
     </div>

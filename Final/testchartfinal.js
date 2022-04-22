@@ -29,11 +29,7 @@ d3.csv("./finalData.csv")
             return +d.CO2;
         });
 
-        var maxGDP = d3.max(finalData, function (d) {
-            return +d.GDP;
-        });
-
-        console.log(maxPopulation, maxCO2, maxGDP)
+        console.log(maxPopulation, maxCO2)
 
         // X axis
         var x = d3.scaleLog()
@@ -54,14 +50,8 @@ d3.csv("./finalData.csv")
 
         var frequency = 3 * 1000; // 3 seconds
 
-        var z = d3.scaleLinear()
-            .domain([0, maxGDP])
-            .range([0, maxGDP]);
-        svg.append("transform", "translate(0," + maxGDP + ")")
-            .call(d3.maxGDP(r));
-
-
         //bubbles
+
         svg.append('g')
             .selectAll("bubbles")
             .data(finalData)
@@ -69,12 +59,12 @@ d3.csv("./finalData.csv")
             .append("circle")
             .attr("cx", function (d) { return x(+d.Population * 1000); })
             .attr("cy", function (d) { return y(+d.CO2); })
-            .attr("r", function (d) { return z(d.GDP); })
+            .attr("r", 0)
             .style("fill", "#53265e")
             .style("opacity", "0.7")
             .attr("stroke", "black")
             .transition().duration(frequency / 2)
-            .attr("r", maxGDP)
+            .attr("r", 20)
 
 
     });

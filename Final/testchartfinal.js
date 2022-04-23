@@ -64,7 +64,7 @@ d3.csv("./finalData.csv")
             .style("opacity", "0.7")
             .attr("stroke", "black")
             .transition().duration(frequency / 2)
-            .attr("r", 20)
+            .attr("r", function (d) { return d.GDP % 30 })
 
 
     });

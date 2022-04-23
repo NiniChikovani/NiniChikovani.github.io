@@ -5,7 +5,7 @@ body {
 
 .main-banner {
   margin: 0 auto;
-  width: 1200px;
+  /* width: 100vw; */
   height: 400px;
   background-color: #bad3dd;
   overflow: hidden;
@@ -17,7 +17,7 @@ body {
 }
 
 .main-banner .imgban {
-  width: 100%;
+  width: 100vw;
   height: 100%;
   position: absolute;
   top: 0px;
@@ -86,4 +86,10 @@ body {
   background-color: rgb(235, 220, 241);
   display: none;
   position: absolute;
+}
+
+#banner {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
 }

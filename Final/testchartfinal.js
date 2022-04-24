@@ -14,6 +14,29 @@ var svg = d3.select("#Bubblechart")
     .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
 
+svg.append("text")
+    .attr("class", "xLabel")
+    .attr("text-anchor", "end")
+    .attr("x", 450)
+    .attr("y", 515)
+    .text("Population").attr('overflow', 'visible').attr('z-index', 100)
+
+
+svg.append("text")
+    .attr("class", "yLabel")
+    .attr("text-anchor", "end")
+    .attr("x", -120)
+    .attr("y", -50)
+    .text("CO2 Emissions per Capita").attr("transform", "rotate(-90)")
+
+
+var tooltip = d3.select("body")
+    .append("div")
+    .style("position", "absolute")
+    .style("z-index", "10")
+    .style("visibility", "hidden").style('background-color', "  rgb(235, 220, 241)").style("padding", "8px").style("border-radius", "4px")
+    .text("a simple tooltip");
+
 // data
 d3.csv("./finalData.csv")
     .then(function (finalData) {
@@ -52,19 +75,32 @@ d3.csv("./finalData.csv")
 
         //bubbles
 
-        svg.append('g')
-            .selectAll("bubbles")
+        var bubbleGroup = svg.append('g');
+
+        var bubbles = bubbleGroup.selectAll("bubbles")
             .data(finalData)
             .enter()
             .append("circle")
             .attr("cx", function (d) { return x(+d.Population * 1000); })
             .attr("cy", function (d) { return y(+d.CO2); })
             .attr("r", 0)
-            .style("fill", "#53265e")
+
+        bubbles.style("fill", "#53265e")
             .style("opacity", "0.7")
             .attr("stroke", "black")
-            .transition().duration(frequency / 2)
-            .attr("r", function (d) { return d.GDP % 30 })
+            .transition().duration(frequency / 2).attr("r", function (d) { return d.GDP % 30 })
 
+        bubbles.on("mouseover", function (d) {
+            let data = d.target.__data__
+            tooltip.html("Country: " + data.Country + "</br>Population: " + data.Population + "<br>GDP: " + data.GDP + "<br>CO2 Emissions: " + data.CO2);
+            return tooltip.style("visibility", "visible");
+        })
+            .on("mousemove", function (e) {
+                return tooltip.style("top",
+                    (e.pageY - 10) + "px").style("left", (e.pageX + 10) + "px");
+            })
+            .on("mouseout", function () {
+                return tooltip.style("visibility", "hidden");
+            });
 
     });

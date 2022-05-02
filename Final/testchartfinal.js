@@ -22,6 +22,7 @@ svg.append("text")
     .text("Population").attr('overflow', 'visible').attr('z-index', 100)
 
 
+
 svg.append("text")
     .attr("class", "yLabel")
     .attr("text-anchor", "end")

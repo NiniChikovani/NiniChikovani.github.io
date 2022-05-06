@@ -93,7 +93,7 @@ d3.csv("./finalData.csv")
 
         bubbles.on("mouseover", function (d) {
             let data = d.target.__data__
-            tooltip.html("Country: " + data.Country + "</br>Population: " + data.Population + "<br>GDP: " + data.GDP + "<br>CO2 Emissions: " + data.CO2);
+            tooltip.html("Country: " + data.Country + "</br>Population: " + (data.Population * 1000) + "<br>GDP: " + data.GDP + "<br>CO2 Emissions: " + data.CO2);
             return tooltip.style("visibility", "visible");
         })
             .on("mousemove", function (e) {
